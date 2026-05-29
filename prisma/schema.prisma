@@ -12,6 +12,13 @@ model User {
   id    String @id @default(uuid())
   name  String
   email String @unique
+<<<<<<< HEAD
+<<<<<<< HEAD
+  password String
+=======
+>>>>>>> faf3c01fba72085ba64ed7c266195f6daf309b1f
+=======
+>>>>>>> faf3c01fba72085ba64ed7c266195f6daf309b1f
 
   tasks Task[]
 }
