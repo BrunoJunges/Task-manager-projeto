@@ -11,6 +11,7 @@
     "@nestjs/common": "^11.0.0",
     "@nestjs/core": "^11.0.0",
 <<<<<<< HEAD
+<<<<<<< HEAD
     "@nestjs/jwt": "^11.0.2",
     "@nestjs/passport": "^11.0.5",
     "@nestjs/platform-express": "^11.0.0",
@@ -21,10 +22,15 @@
     "passport": "^0.7.0",
     "passport-jwt": "^4.0.1",
 =======
+=======
+>>>>>>> faf3c01fba72085ba64ed7c266195f6daf309b1f
     "@nestjs/platform-express": "^11.0.0",
     "@prisma/client": "^6.19.3",
     "class-transformer": "^0.5.1",
     "class-validator": "^0.14.2",
+<<<<<<< HEAD
+>>>>>>> faf3c01fba72085ba64ed7c266195f6daf309b1f
+=======
 >>>>>>> faf3c01fba72085ba64ed7c266195f6daf309b1f
     "reflect-metadata": "^0.2.2",
     "rxjs": "^7.8.2"
@@ -32,9 +38,13 @@
   "devDependencies": {
     "@nestjs/cli": "^11.0.0",
 <<<<<<< HEAD
+<<<<<<< HEAD
     "@types/bcrypt": "^6.0.0",
     "@types/node": "^22.15.21",
     "@types/passport-jwt": "^4.0.1",
+=======
+    "@types/node": "^22.15.21",
+>>>>>>> faf3c01fba72085ba64ed7c266195f6daf309b1f
 =======
     "@types/node": "^22.15.21",
 >>>>>>> faf3c01fba72085ba64ed7c266195f6daf309b1f
@@ -44,7 +54,11 @@
     "typescript": "^5.8.3"
   }
 <<<<<<< HEAD
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> faf3c01fba72085ba64ed7c266195f6daf309b1f
 =======
 }
 >>>>>>> faf3c01fba72085ba64ed7c266195f6daf309b1f
