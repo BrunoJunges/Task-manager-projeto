@@ -14,6 +14,7 @@ import { TaskService } from './task.service';
 import { CreateTaskDto } from './dto/create-task.dto';
 import { UpdateTaskDto } from './dto/update-task.dto';
 import { JwtAuthGuard } from '../auth/guards/jwt-auth.guard';
+import { CurrentUser } from '../../common/decorators/current-user.decorator';
 
 @UseGuards(JwtAuthGuard)
 @Controller('tasks')
@@ -26,30 +27,31 @@ export class TaskController {
   }
 
   @Get()
-  findAll() {
-    return this.service.getTasks();
+  findAll(@CurrentUser() user: any) {
+    return this.service.getTasks(user.id);
   }
 
   @Get(':id')
-  findOne(@Param('id') id: string) {
-    return this.service.getTaskById(id);
+  findOne(@Param('id') id: string, @CurrentUser() user: any) {
+    return this.service.getTaskById(id, user.id);
   }
 
   @Put(':id')
   update(
     @Param('id') id: string,
     @Body() data: UpdateTaskDto,
+    @CurrentUser() user: any,
   ) {
-    return this.service.updateTask(id, data);
+    return this.service.updateTask(id, data, user.id);
   }
 
   @Delete(':id')
-  remove(@Param('id') id: string) {
-    return this.service.deleteTask(id);
+  remove(@Param('id') id: string, @CurrentUser() user: any) {
+    return this.service.deleteTask(id, user.id);
   }
 
   @Patch(':id/complete')
-  complete(@Param('id') id: string) {
-    return this.service.completeTask(id);
+  complete(@Param('id') id: string, @CurrentUser() user: any) {
+    return this.service.completeTask(id, user.id);
   }
 }
