@@ -25,9 +25,27 @@ export class TaskRepository {
     });
   }
 
+  findAllByUser(userId: string) {
+    return this.prisma.task.findMany({
+      where: { userId },
+      include: {
+        user: true,
+      },
+    });
+  }
+
   findById(id: string) {
     return this.prisma.task.findUnique({
       where: { id },
+    });
+  }
+
+  findByIdAndUser(id: string, userId: string) {
+    return this.prisma.task.findUnique({
+      where: { id },
+      include: {
+        user: true,
+      },
     });
   }
 

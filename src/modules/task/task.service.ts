@@ -2,6 +2,7 @@ import {
   Injectable,
   BadRequestException,
   NotFoundException,
+  ForbiddenException,
 } from '@nestjs/common';
 
 import { TaskRepository } from './task.repository';
@@ -25,25 +26,33 @@ export class TaskService {
     return this.repository.create(data);
   }
 
-  async getTasks() {
-    return this.repository.findAll();
+  async getTasks(userId: string) {
+    return this.repository.findAllByUser(userId);
   }
 
-  async getTaskById(id: string) {
-    const task = await this.repository.findById(id);
+  async getTaskById(id: string, userId: string) {
+    const task = await this.repository.findByIdAndUser(id, userId);
 
     if (!task) {
       throw new NotFoundException('Task not found');
     }
 
+    if (task.userId !== userId) {
+      throw new ForbiddenException('You do not have access to this task');
+    }
+
     return task;
   }
 
-  async updateTask(id: string, data: UpdateTaskDto) {
-    const existing = await this.repository.findById(id);
+  async updateTask(id: string, data: UpdateTaskDto, userId: string) {
+    const existing = await this.repository.findByIdAndUser(id, userId);
 
     if (!existing) {
       throw new NotFoundException('Task not found');
+    }
+
+    if (existing.userId !== userId) {
+      throw new ForbiddenException('You do not have access to this task');
     }
 
     if (
@@ -58,21 +67,29 @@ export class TaskService {
     return this.repository.update(id, data);
   }
 
-  async deleteTask(id: string) {
-    const existing = await this.repository.findById(id);
+  async deleteTask(id: string, userId: string) {
+    const existing = await this.repository.findByIdAndUser(id, userId);
 
     if (!existing) {
       throw new NotFoundException('Task not found');
     }
 
+    if (existing.userId !== userId) {
+      throw new ForbiddenException('You do not have access to this task');
+    }
+
     return this.repository.delete(id);
   }
 
-  async completeTask(id: string) {
-    const task = await this.repository.findById(id);
+  async completeTask(id: string, userId: string) {
+    const task = await this.repository.findByIdAndUser(id, userId);
 
     if (!task) {
       throw new NotFoundException('Task not found');
+    }
+
+    if (task.userId !== userId) {
+      throw new ForbiddenException('You do not have access to this task');
     }
 
     if (task.status === 'COMPLETED') {
