@@ -7,29 +7,15 @@ import {
   Put,
   Delete,
   Patch,
-<<<<<<< HEAD
-<<<<<<< HEAD
   UseGuards,
-=======
->>>>>>> faf3c01fba72085ba64ed7c266195f6daf309b1f
-=======
->>>>>>> faf3c01fba72085ba64ed7c266195f6daf309b1f
 } from '@nestjs/common';
 
 import { TaskService } from './task.service';
 import { CreateTaskDto } from './dto/create-task.dto';
 import { UpdateTaskDto } from './dto/update-task.dto';
-<<<<<<< HEAD
-<<<<<<< HEAD
 import { JwtAuthGuard } from '../auth/guards/jwt-auth.guard';
 
 @UseGuards(JwtAuthGuard)
-=======
-
->>>>>>> faf3c01fba72085ba64ed7c266195f6daf309b1f
-=======
-
->>>>>>> faf3c01fba72085ba64ed7c266195f6daf309b1f
 @Controller('tasks')
 export class TaskController {
   constructor(private service: TaskService) {}

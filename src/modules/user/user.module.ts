@@ -9,12 +9,6 @@ import { UserRepository } from './user.repository';
   imports: [DatabaseModule],
   controllers: [UserController],
   providers: [UserService, UserRepository],
-<<<<<<< HEAD
-<<<<<<< HEAD
   exports: [UserService],
-=======
->>>>>>> faf3c01fba72085ba64ed7c266195f6daf309b1f
-=======
->>>>>>> faf3c01fba72085ba64ed7c266195f6daf309b1f
 })
 export class UserModule {}

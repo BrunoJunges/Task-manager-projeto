@@ -13,5 +13,10 @@
     "incremental": true,
     "strict": false,
     "skipLibCheck": true
-  }
+  },
+  "exclude": [
+    "node_modules",
+    "dist",
+    "frontend"
+  ]
 }
